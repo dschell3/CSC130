@@ -5,7 +5,7 @@ import java.util.Stack;
 class Solution {
     public boolean isValid(String s) {
 
-        // create stack to hold opening chars, and int indexes for the string
+        // create stack of chars to hold opening parentheses, and int indexes for the string
         Stack<Character> parentheses = new Stack<>();
         int start = 0;
         int end = s.length() - 1;
@@ -19,9 +19,10 @@ class Solution {
                 parentheses.push(cursor);
             }
 
-            // if cursor is closing char -> is the stack empty? if not is the top element in stack the matching char?
-            // true     => continue processing
-            // false    => not valid
+            // if cursor is closing char and the stack isn't empty:
+            //      is the top element in stack the matching char?
+            //         true     => continue processing
+            //         false    => not valid
             else if (cursor == ')' && parentheses.size() != 0) {
                 if (parentheses.peek() == '(') {
                     parentheses.pop();
@@ -41,12 +42,12 @@ class Solution {
                     return false;
                 }
             }
-            // programs should never reach here, if valid chars used in s
+            // programs should never reach here, if only valid chars used in s
             else {
                 return false;
             }
 
-            // increment index
+            // increment index...look at next char
             start++;
         }
 
