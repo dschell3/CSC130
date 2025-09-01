@@ -7,7 +7,7 @@ class Solution {
 
         while (start < end)
         {
-            // create pointers to each end of the string
+            // create pointers starting at each end of the string
             char left_cursor = s.charAt(start);
             char right_cursor = s.charAt(end);
             
